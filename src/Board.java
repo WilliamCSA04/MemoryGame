@@ -24,7 +24,7 @@ public class Board {
         Queue<String> options = getOptions();
         String table[][]  = new String[6][3];
         for(int i=0; i<table.length; i++){
-            for(int j=0; j<table.length; j++){
+            for(int j=0; j<table[i].length; j++){
                 table[i][j] = options.remove();
             }
         }
@@ -37,5 +37,15 @@ public class Board {
         Queue<String> options = new LinkedList<>(Arrays.asList(allOptions));
         return options;
     }
+
+    public String[][] getHiddenTable() {
+        return hiddenTable;
+    }
+
+    public void setHiddenTable(String[][] hiddenTable) {
+        this.hiddenTable = hiddenTable;
+    }
+    
+    
     
 }
