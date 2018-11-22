@@ -27,7 +27,7 @@ public class Board {
     
     private String[][] initializeTable(){
         Queue<String> options = getOptions();
-        String table[][]  = new String[6][3];
+        String table[][]  = new String[3][6];
         for(int i=0; i<table.length; i++){
             for(int j=0; j<table[i].length; j++){
                 table[i][j] = options.remove();
@@ -38,8 +38,6 @@ public class Board {
     
     private Queue<String> getOptions(){
         String allOptions[] = new String[] {"C", "H", "B", "E", "A", "F", "D", "G", "G", "I", "C", "F", "A", "E", "D", "H", "B", "I"};
-        Arrays.sort(allOptions);
-        System.out.println(Arrays.toString(allOptions));
         Queue<String> options = new LinkedList<>(Arrays.asList(allOptions));
         return options;
     }
@@ -53,13 +51,16 @@ public class Board {
     }
 
     public String[][] getHiddenTableWithVisiblePositions(int[] firstCoord, int[] secondCoord) {
-        String[][] cloned_table = Helper.deepClone(this.hiddenTable);
-        cloned_table[firstCoord[0]][firstCoord[1]] = this.table[firstCoord[0]][firstCoord[1]];
-        cloned_table[secondCoord[0]][secondCoord[1]] = this.table[secondCoord[0]][secondCoord[1]];
-        if(cloned_table[firstCoord[0]][firstCoord[1]].equals(cloned_table[secondCoord[0]][secondCoord[1]])){
-            this.hiddenTable = cloned_table;
+        String[][] clonedTable = Helper.deepClone(this.hiddenTable);
+        System.out.println(Arrays.deepToString(this.table));
+        String a1 = this.table[firstCoord[0]][firstCoord[1]];
+        String a2 = this.table[secondCoord[0]][secondCoord[1]];
+        clonedTable[firstCoord[0]][firstCoord[1]] = a1;
+        clonedTable[secondCoord[0]][secondCoord[1]] = a2;
+        if(a1.equals(a2)){
+            this.hiddenTable = clonedTable;
         }
-        return cloned_table;
+        return clonedTable;
     }
     
     

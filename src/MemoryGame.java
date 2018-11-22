@@ -5,6 +5,7 @@
  */
 
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -29,7 +30,10 @@ public class MemoryGame {
             String secondPositions[] = secondPosition.split(",");
             int[] firstCoord = new int[] {Integer.parseInt(firstPositions[0]), Integer.parseInt(firstPositions[1])};
             int[] secondCoord = new int[] {Integer.parseInt(secondPositions[0]), Integer.parseInt(secondPositions[1])};
-            game.play(firstCoord, secondCoord);
+            gameStatus = game.play(firstCoord, secondCoord);
+            if(Integer.MIN_VALUE == gameStatus){
+                System.out.println("Jogada invalida");
+            }
         }
         
     }

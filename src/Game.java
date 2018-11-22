@@ -35,23 +35,22 @@ public class Game {
     }
     
     public int play(int firstCoord[], int secondCoord[]){
-        int gameStatus = 0; //If has no winner or losser
-        if(firstCoord.length != 2 || secondCoord.length != 2){
-            return Integer.MIN_VALUE; //invalid play
-        }
-        if(firstCoord[0] == (secondCoord[0]) && firstCoord[1] == (secondCoord[1])){
-            return Integer.MIN_VALUE; //invalid play
-        }
-        reveal(firstCoord, secondCoord);
-        
-        if(didLose()){
-            gameStatus = -1;
-        }else{
-            if(didWin()){
-                gameStatus = 1;
+        try{
+            int gameStatus = 0; //If has no winner or losser
+            reveal(firstCoord, secondCoord);
+            if(didLose()){
+                gameStatus = -1;
+            }else{
+                if(didWin()){
+                    gameStatus = 1;
+                }
             }
+            return gameStatus;
+        }catch(Exception e){
+            System.out.println(e.getMessage());
+            return Integer.MIN_VALUE;
         }
-        return gameStatus;
+        
     }
     
     private boolean didWin(){
