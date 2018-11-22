@@ -6,9 +6,12 @@ public class Board {
     
     private static Board board = null;
     private String table[][];
+    private String hiddenTable[][];
 
     private Board(){
         this.table = initializeTable();
+        this.hiddenTable = new String[][] {{"?", "?", "?", "?", "?", "?"}, {"?", "?", "?", "?", "?", "?"}, {"?", "?", "?", "?", "?", "?"}};
+
     }
     
     public static Board getInstance(){
