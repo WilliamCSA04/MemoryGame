@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package memorygame;
+
+
+import java.util.Scanner;
 
 /**
  *
@@ -15,7 +17,11 @@ public class MemoryGame {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Scanner scanner = new Scanner(System.in);
+        Game game = Game.getInstance();
+        System.out.print("Enter a sentence:\t");
+        String sentence = scanner.nextLine();
+
     }
     
 }
