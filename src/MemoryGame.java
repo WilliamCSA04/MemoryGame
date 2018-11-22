@@ -24,13 +24,24 @@ public class MemoryGame {
         while(gameStatus != 1 || gameStatus != -1){
             System.out.print("Diga a primeira posição (ex: 1,2):\t");
             String firstPosition = scanner.nextLine();
+            if(firstPosition.equals("exit")){
+                break;
+            }
             System.out.print("Diga a segunda posição (ex: 3,2):\t");
             String secondPosition = scanner.nextLine();
+            if(secondPosition.equals("exit")){
+                break;
+            }
             String firstPositions[] = firstPosition.split(",");
             String secondPositions[] = secondPosition.split(",");
-            int[] firstCoord = new int[] {Integer.parseInt(firstPositions[0]), Integer.parseInt(firstPositions[1])};
-            int[] secondCoord = new int[] {Integer.parseInt(secondPositions[0]), Integer.parseInt(secondPositions[1])};
-            gameStatus = game.play(firstCoord, secondCoord);
+            try {
+                int[] firstCoord = new int[] {Integer.parseInt(firstPositions[0]), Integer.parseInt(firstPositions[1])};
+                int[] secondCoord = new int[] {Integer.parseInt(secondPositions[0]), Integer.parseInt(secondPositions[1])};
+                gameStatus = game.play(firstCoord, secondCoord);
+            }catch(Exception e){
+                System.out.println("Jogada invalida");
+                continue;
+            }       
             if(Integer.MIN_VALUE == gameStatus){
                 System.out.println("Jogada invalida");
             }
