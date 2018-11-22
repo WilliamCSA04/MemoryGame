@@ -16,7 +16,7 @@ public class Game {
     private static Game game;
     private Board board;
     private Player player;
-    private final int MISS_LIMIT = 10;
+    private final int MISS_LIMIT = 1;
     
     private Game(){
         this.board = Board.getInstance();
@@ -37,11 +37,18 @@ public class Game {
     public int play(int firstCoord[], int secondCoord[]){
         try{
             int gameStatus = 0; //If has no winner or losser
+            if(firstCoord[0] == secondCoord[0] && firstCoord[1] == secondCoord[1]){
+                return Integer.MIN_VALUE;
+            }
             reveal(firstCoord, secondCoord);
-            if(didLose()){
+            boolean isLost = didLose();
+            if(isLost){
+                finishGame(!isLost);
                 gameStatus = -1;
             }else{
-                if(didWin()){
+                boolean isWinner = didWin();
+                if(isWinner){
+                    finishGame(isWinner);
                     gameStatus = 1;
                 }
             }
@@ -78,6 +85,10 @@ public class Game {
         for(String[] row : table){
             System.out.println(Arrays.toString(row));
         }
+    }
+
+    public Player getPlayer() {
+        return player;
     }
     
 }

@@ -58,6 +58,10 @@ public class Board {
         clonedTable[secondCoord[0]][secondCoord[1]] = a2;
         if(a1.equals(a2)){
             this.hiddenTable = clonedTable;
+        }else{
+            int missTimes = Player.getInstance().getMissTimes();
+            missTimes++;
+            Player.getInstance().setMissTimes(missTimes);
         }
         return clonedTable;
     }

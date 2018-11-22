@@ -21,7 +21,8 @@ public class MemoryGame {
         Scanner scanner = new Scanner(System.in);
         Game game = Game.getInstance();
         int gameStatus = 0;
-        while(gameStatus != 1 || gameStatus != -1){
+        while(gameStatus != 1 && gameStatus != -1){
+            System.out.println("Erros: " + game.getPlayer().getMissTimes());
             System.out.print("Diga a primeira posição (ex: 1,2):\t");
             String firstPosition = scanner.nextLine();
             if(firstPosition.equals("exit")){
