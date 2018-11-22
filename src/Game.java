@@ -73,6 +73,9 @@ public class Game {
     
     private void reveal(int firstCoord[], int secondCoord[]){
         String[][] table = board.getHiddenTableWithVisiblePositions(firstCoord, secondCoord);
+        for(String[] row : table){
+            System.out.println(row);
+        }
     }
     
 }
