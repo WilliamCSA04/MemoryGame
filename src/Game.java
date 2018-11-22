@@ -13,6 +13,7 @@ public class Game {
     private static Game game;
     private Board board;
     private Player player;
+    private final int MISS_LIMIT = 10;
     
     private Game(){
         this.board = Board.getInstance();
