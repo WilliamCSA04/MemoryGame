@@ -1,3 +1,8 @@
+import Helper.Helper;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
@@ -44,6 +49,13 @@ public class Board {
 
     public void setHiddenTable(String[][] hiddenTable) {
         this.hiddenTable = hiddenTable;
+    }
+
+    public String[][] getHiddenTableWithVisiblePositions(int[] firstCoord, int[] secondCoord) {
+        String[][] cloned_table = Helper.deepClone(this.hiddenTable);
+        cloned_table[firstCoord[0]][firstCoord[1]] = this.table[firstCoord[0]][firstCoord[1]];
+        cloned_table[secondCoord[0]][secondCoord[1]] = this.table[secondCoord[0]][secondCoord[1]];
+        return cloned_table;
     }
     
     

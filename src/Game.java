@@ -31,14 +31,15 @@ public class Game {
         return MISS_LIMIT <= player.getMissTimes();
     }
     
-    public int play(String firstCoord[], String secondCoord[]){
+    public int play(int firstCoord[], int secondCoord[]){
         int gameStatus = 0; //If has no winner or losser
         if(firstCoord.length != 2 || secondCoord.length != 2){
             return Integer.MIN_VALUE; //invalid play
         }
-        if(firstCoord[0] == secondCoord[0] && firstCoord[1] == secondCoord[1]){
+        if(firstCoord[0] == (secondCoord[0]) && firstCoord[1] == (secondCoord[1])){
             return Integer.MIN_VALUE; //invalid play
         }
+        
         if(didLose()){
             gameStatus = -1;
         }else{
@@ -51,9 +52,9 @@ public class Game {
     
     private boolean didWin(){
         String table[][] = board.getHiddenTable();
-        for(int i=0; i<table.length; i++){
-            for(int j=0; j<table[i].length; j++){
-                if(table[i][j].equals("?")){
+        for (String[] row : table) {
+            for (String item : row) {
+                if (item.equals("?")) {
                     return false;
                 }
             }
@@ -68,6 +69,10 @@ public class Game {
             System.out.println("GAME OVER");
         }
         return isWinner;
+    }
+    
+    private void reveal(int firstCoord[], int secondCoord[]){
+        String[][] table = board.getHiddenTableWithVisiblePositions(firstCoord, secondCoord);
     }
     
 }
