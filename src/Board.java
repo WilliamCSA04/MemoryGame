@@ -55,6 +55,9 @@ public class Board {
         String[][] cloned_table = Helper.deepClone(this.hiddenTable);
         cloned_table[firstCoord[0]][firstCoord[1]] = this.table[firstCoord[0]][firstCoord[1]];
         cloned_table[secondCoord[0]][secondCoord[1]] = this.table[secondCoord[0]][secondCoord[1]];
+        if(cloned_table[firstCoord[0]][firstCoord[1]].equals(cloned_table[secondCoord[0]][secondCoord[1]])){
+            this.hiddenTable = cloned_table;
+        }
         return cloned_table;
     }
     
