@@ -12,9 +12,11 @@ public class Game {
     
     private static Game game;
     private Board board;
+    private Player player;
     
     private Game(){
         this.board = Board.getInstance();
+        this.player = Player.getInstance();
     }
     
     public static Game getInstance(){
