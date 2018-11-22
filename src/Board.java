@@ -37,8 +37,9 @@ public class Board {
     }
     
     private Queue<String> getOptions(){
-        String allOptions[] = new String[] {"A", "A", "B", "B", "C", "C", "D", "D", "E", "E", "F", "F", "G", "G", "H", "H", "I", "I"};
+        String allOptions[] = new String[] {"C", "H", "B", "E", "A", "F", "D", "G", "G", "I", "C", "F", "A", "E", "D", "H", "B", "I"};
         Arrays.sort(allOptions);
+        System.out.println(Arrays.toString(allOptions));
         Queue<String> options = new LinkedList<>(Arrays.asList(allOptions));
         return options;
     }
