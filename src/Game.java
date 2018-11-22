@@ -27,6 +27,17 @@ public class Game {
         return game;
     }
     
+    private boolean didLoss(){
+        return MISS_LIMIT <= player.getMissTimes();
+    }
     
+    private boolean finishGame(boolean isWinner){
+        if(isWinner){
+            System.out.println("Parabéns, você venceu!");
+        }else{
+            System.out.println("GAME OVER");
+        }
+        return isWinner;
+    }
     
 }

@@ -19,5 +19,14 @@ public class Player {
         }
         return player;
     }
+
+    public int getMissTimes() {
+        return missTimes;
+    }
+
+    public void setMissTimes(int missTimes) {
+        this.missTimes = missTimes;
+    }
+    
     
 }
