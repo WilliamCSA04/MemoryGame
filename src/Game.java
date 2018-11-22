@@ -1,3 +1,6 @@
+
+import java.util.Arrays;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -39,6 +42,7 @@ public class Game {
         if(firstCoord[0] == (secondCoord[0]) && firstCoord[1] == (secondCoord[1])){
             return Integer.MIN_VALUE; //invalid play
         }
+        reveal(firstCoord, secondCoord);
         
         if(didLose()){
             gameStatus = -1;
@@ -74,7 +78,7 @@ public class Game {
     private void reveal(int firstCoord[], int secondCoord[]){
         String[][] table = board.getHiddenTableWithVisiblePositions(firstCoord, secondCoord);
         for(String[] row : table){
-            System.out.println(row);
+            System.out.println(Arrays.toString(row));
         }
     }
     
