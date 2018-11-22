@@ -33,9 +33,10 @@ public class MemoryGame {
             if(secondPosition.equals("exit")){
                 break;
             }
-            String firstPositions[] = firstPosition.split(",");
-            String secondPositions[] = secondPosition.split(",");
+            
             try {
+                String firstPositions[] = firstPosition.split(",");
+                String secondPositions[] = secondPosition.split(",");
                 int[] firstCoord = new int[] {Integer.parseInt(firstPositions[0]), Integer.parseInt(firstPositions[1])};
                 int[] secondCoord = new int[] {Integer.parseInt(secondPositions[0]), Integer.parseInt(secondPositions[1])};
                 gameStatus = game.play(firstCoord, secondCoord);
