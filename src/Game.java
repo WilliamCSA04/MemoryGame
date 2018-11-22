@@ -11,6 +11,11 @@
 public class Game {
     
     private static Game game;
+    private Board board;
+    
+    private Game(){
+        this.board = Board.getInstance();
+    }
     
     public static Game getInstance(){
         if(game == null){
