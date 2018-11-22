@@ -52,7 +52,6 @@ public class Board {
 
     public String[][] getHiddenTableWithVisiblePositions(int[] firstCoord, int[] secondCoord) {
         String[][] clonedTable = Helper.deepClone(this.hiddenTable);
-        System.out.println(Arrays.deepToString(this.table));
         String a1 = this.table[firstCoord[0]][firstCoord[1]];
         String a2 = this.table[secondCoord[0]][secondCoord[1]];
         clonedTable[firstCoord[0]][firstCoord[1]] = a1;

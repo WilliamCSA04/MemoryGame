@@ -47,7 +47,6 @@ public class Game {
             }
             return gameStatus;
         }catch(Exception e){
-            System.out.println(e.getMessage());
             return Integer.MIN_VALUE;
         }
         
