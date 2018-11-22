@@ -11,6 +11,7 @@
 public class Player {
     
     private static Player player;
+    private int missTimes = 0;
     
     public static Player getInstance(){
         if(player == null){
