@@ -11,7 +11,6 @@ public class Board {
     private Board(){
         this.table = initializeTable();
         this.hiddenTable = new String[][] {{"?", "?", "?", "?", "?", "?"}, {"?", "?", "?", "?", "?", "?"}, {"?", "?", "?", "?", "?", "?"}};
-
     }
     
     public static Board getInstance(){
